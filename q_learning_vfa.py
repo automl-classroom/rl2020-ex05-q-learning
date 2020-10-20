@@ -30,22 +30,6 @@ def policy(state, exploration_rate):
 def vfa_update(states, actions, rewards, dones, next_states):
     """Implement Value Function Training Step"""
 
-    optimizer.zero_grad()
-    states = torch.from_numpy(np.array(states)).float()
-    actions = torch.from_numpy(np.array(actions)).unsqueeze(-1)
-    rewards = torch.from_numpy(np.array(rewards)).float()
-    dones = torch.from_numpy(np.array(dones)).float()
-    next_states = torch.from_numpy(np.array(next_states)).float()
-
-    q_values = torch.gather(Q(states), dim=-1, index=actions).squeeze()
-    target_q_values = rewards + \
-        (1 - dones) * DISCOUNT_FACTOR * Q(next_states).max(dim=-1)[0].detach()
-    loss = F.mse_loss(q_values, target_q_values)
-
-    loss.backward()
-    optimizer.step()
-    return loss.item()
-
 
 def q_learning(num_episodes, exploration_rate=0.1):
     rewards = []

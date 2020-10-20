@@ -59,9 +59,6 @@ def q_learning(num_episodes, exploration_rate=0.5, exploration_rate_decay=0.9, m
 
             """ Implement Q-Learning Update"""
 
-            Q[(state, action)] = (1-LEARNING_RATE)*Q[(state, action)] + \
-                LEARNING_RATE*(reward + DISCOUNT_FACTOR *
-                               Q[(next_state, optimal_next_action)])
             state = next_state
 
             rewards[-1] += reward

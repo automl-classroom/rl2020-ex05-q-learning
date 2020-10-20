@@ -1,2 +1,3 @@
-# Week 1: Introduction
-The exercises in this course will teach you how to implement important RL algorithms and how every part of the RL pipeline works. The goal of this first exercise is to set up teams and learn about git and the workflow for future exercises.
+# Week 5: Q-Learning
+
+This week you will implement Q-Learning, another model-free RL algorithm. By using linear function approximation, it is able to scale to infinitely large state spaces.
